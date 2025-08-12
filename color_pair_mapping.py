@@ -27,3 +27,12 @@ def get_pair_number_from_color(major_color, minor_color):
   except ValueError:
     raise Exception('Minor index out of range')
   return major_index * len(MINOR_COLORS) + minor_index + 1
+
+def print_reference_manual():
+  print("Reference Manual")
+  max_major_len = max(len(color) for color in MAJOR_COLORS)
+  max_pair_num_len = len(str(len(MAJOR_COLORS) * len(MINOR_COLORS)))
+  pair_number = 1
+  for major_color in MAJOR_COLORS:
+    for minor_color in MINOR_COLORS:
+      print(f'{get_pair_number_from_color(major_color, minor_color):<{max_pair_num_len}} {major_color:<{max_major_len}} {minor_color}')
